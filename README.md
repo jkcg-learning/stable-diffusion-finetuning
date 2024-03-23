@@ -131,6 +131,8 @@ Inference with Trained LoRA
 │    --help                        Show this message and exit.                                                                                    │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
+'''
+
 ## 🔥 Fine Tune
 
 Create a folder inside dataset/train_data folder, and put your images, make sure the images are square crops, and the images should focus only on the subject, take different photos with different background and clothes for better results
