@@ -7,7 +7,7 @@ from torch.utils.data import Dataset
 from torchvision import transforms as T
 
 
-class DreamBoothDataset(Dataset):
+class SDXLFineTuneDataset(Dataset):
     def __init__(self, images_dir: str, prompt: str, size: int = 1024):
         self.size = size
         self.images_dir = Path(images_dir)
