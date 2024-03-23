@@ -130,3 +130,22 @@ Inference with Trained LoRA
 │    --output-dir            TEXT  The output directory to store the images [default: infer-outputs]                                              │
 │    --help                        Show this message and exit.                                                                                    │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+## 🔥 Fine Tune
+
+Create a folder inside dataset/train_data folder, and put your images, make sure the images are square crops, and the images should focus only on the subject, take different photos with different background and clothes for better results
+
+Then start fine tuning!
+
+NOTE: It's comfortable to train on a 24GB VRAM Graphic Card, I have used A40 machine for this
+
+```
+accelerate launch main.py lora --input-images-dir ./dataset/train_images --instance-prompt "jkcgprnna" --resolution 512 --train-batch-size 1 --max-train-steps 1000 --mixed-precision fp16 --output-dir ./output/jkcgprnna_sdxl
+```
+
+
+## 🍺 Infer
+
+```
+python main.py infer --prompt "a photo of jkcgprnna in space, realistic, 8K, restore face" --lora-weights ./output/jkcgprnna_sdxl --output-dir output/images
+```
