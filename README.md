@@ -138,7 +138,9 @@ Create a folder inside dataset/train_data folder, and put your images, make sure
 
 Then start fine tuning!
 
-NOTE: It's comfortable to train on a 24GB VRAM Graphic Card, I have used A40 machine for this
+I have used the instance prompt "jkcgprnna" to finetine SDXL on my own images
+
+NOTE: It's comfortable to train on a 24GB VRAM Graphic Card, I have used A30 machine for this
 
 ```
 accelerate launch main.py lora --input-images-dir ./dataset/train_images --instance-prompt "jkcgprnna" --resolution 512 --train-batch-size 1 --max-train-steps 1000 --mixed-precision fp16 --output-dir ./output/jkcgprnna_sdxl
@@ -150,3 +152,11 @@ accelerate launch main.py lora --input-images-dir ./dataset/train_images --insta
 ```
 python main.py infer --prompt "a photo of jkcgprnna in space, realistic, 8K, restore face" --lora-weights ./output/jkcgprnna_sdxl --output-dir output/images
 ```
+
+## :airplane: Deploy
+
+A webapp for inference is hosted on HuggingFace.
+
+https://huggingface.co/spaces/jkcg/dreambooth-sdxl-jkcg
+
+Note : The hosted model is finetuned on SD-1.5, using Dreambooth technique. The instance prompt used is "jkcgchry"
